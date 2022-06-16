@@ -68,7 +68,7 @@ class C_tentang extends CI_Controller
             'foto_tentang' => 'foto_tentang'
         ));
 
-        $dataInsert['nama_tentang'] = $nama_tentang;    
+        $dataInsert['nama_tentang'] = $nama_tentang;
         $dataInsert['deskripsi_tentang'] = $deskripsi_tentang;
         $dataInsert['our_commitment'] = $our_commitment;
         $dataInsert['vision_mission'] = $vision_mission;
@@ -174,12 +174,14 @@ class C_tentang extends CI_Controller
 
         $nama_tentang = getPost('nama_tentang');
         $deskripsi_tentang = getPost('deskripsi_tentang');
+        $deskripsi_tentang_en = getPost('deskripsi_tentang_en');
         $our_commitment = getPost('our_commitment');
         $vision_mission = getPost('vision_mission');
         $main_market = getPost('main_market');
 
         $updateData['nama_tentang'] = $nama_tentang;
         $updateData['deskripsi_tentang'] = $deskripsi_tentang;
+        $updateData['deskripsi_tentang_en'] = $deskripsi_tentang_en;
         $updateData['our_commitment'] = $our_commitment;
         $updateData['vision_mission'] = $vision_mission;
         $updateData['main_market'] = $main_market;

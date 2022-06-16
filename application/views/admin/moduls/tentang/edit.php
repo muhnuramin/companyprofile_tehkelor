@@ -27,12 +27,7 @@ defined('BASEPATH') or die('No direct script access allowed!');
 
                     <div class="col-md-12">
                         <label>Nama Depan</label>
-                        <input type="text" class="form-control" name="nama_tentan" placeholder="Nama Depan" value="<?= $data->nama_tentang ?>" required>
-                    </div>
-
-                    <div class="col-md-12">
-                        <label>Nama Depan (US)</label>
-                        <input type="text" class="form-control" name="nama_tentan_us" placeholder="First name" value="<?= $data->nama_tentang ?>" required>
+                        <input type="text" class="form-control" name="nama_tentang" placeholder="Nama Depan" value="<?= $data->nama_tentang ?>" required>
                     </div>
 
                     <div class="col-md-12">
@@ -41,8 +36,8 @@ defined('BASEPATH') or die('No direct script access allowed!');
                     </div>
                     <br>
                     <div class="col-md-12">
-                        <label>Deskripsi Tentang (US)</label>
-                        <textarea class="form-control" name="deskripsi_tentang" id="edit_input_deskripsi2" placeholder="Description About"><?= $data->deskripsi_tentang ?></textarea>
+                        <label>Deskripsi Tentang (english)</label>
+                        <textarea class="form-control" name="deskripsi_tentang_en" id="edit_input_deskripsi2" placeholder="Description About"><?= $data->deskripsi_tentang_en ?></textarea>
                     </div>
 
                 </div>
