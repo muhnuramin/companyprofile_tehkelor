@@ -14,10 +14,10 @@ defined('BASEPATH') or die('No direct script access allowed!');
             <div class="modal-body">
                 <div class="row">
                     <div class="alert alert-warning text-center">
-                    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+                        <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
                         <strong>Peringatan!</strong><br>
-                            Max Dimension : 800 x 533 (px)<br>
-                            Allowed Image : JPG | PNG
+                        Max Dimension : 800 x 533 (px)<br>
+                        Allowed Image : JPG | PNG
                     </div>
 
                     <div class="col-md-12">
@@ -28,25 +28,33 @@ defined('BASEPATH') or die('No direct script access allowed!');
                     <div class="col-md-12">
                         <label>Nama Layanan</label>
                         <input type="text" class="form-control" name="nama_layanan" placeholder="Nama Layanan" value="<?= $data->nama_layanan ?>" required>
-                    </div> 
+                    </div>
+                    <div class="col-md-12">
+                        <label>Nama Layanan (english)</label>
+                        <input type="text" class="form-control" name="nama_layanan_en" placeholder="Nama Layanan" value="<?= $data->nama_layanan_en ?>" required>
+                    </div>
                     <div class="col-md-12">
                         <label>Kategori</label>
                         <br>
-                    <select class="custom-select" name="kategori">
-                        <option selected>Open this select menu</option>
-                        <?php if($data->kategori == 1 ){  ?>
-                            <option value="1" selected>Keripik Buah</option>
-                            <option value="2" >Keripik Sayuran</option>
-                        <?php }else if($data->kategori == 2){ ?>
-                            <option value="1" >Keripik Buah</option>
-                            <option value="2" selected>Keripik Sayuran</option>
-                        <?php } ?>
-                    </select>
-                    </div>             
-                    
+                        <select class="custom-select" name="kategori">
+                            <option selected>Open this select menu</option>
+                            <?php if ($data->kategori == 1) {  ?>
+                                <option value="1" selected>Keripik Buah</option>
+                                <option value="2">Keripik Sayuran</option>
+                            <?php } else if ($data->kategori == 2) { ?>
+                                <option value="1">Keripik Buah</option>
+                                <option value="2" selected>Keripik Sayuran</option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
                     <div class="col-md-12">
                         <label>Deskripsi Layanan</label>
                         <textarea class="form-control" name="deskripsi_layanan" id="edit_input_deskripsi" placeholder="Deskripsi Layanan"><?= $data->deskripsi_layanan ?></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Deskripsi Layanan (english)</label>
+                        <textarea class="form-control" name="deskripsi_layanan_en" id="edit_input_deskripsi2" placeholder="Deskripsi Layanan"><?= $data->deskripsi_layanan_en ?></textarea>
                     </div>
                 </div>
             </div>
@@ -62,6 +70,25 @@ defined('BASEPATH') or die('No direct script access allowed!');
         tinyMCE.init({
             mode: "exact",
             elements: "edit_input_deskripsi",
+            theme: "advanced",
+            plugins: "jbimages,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+            language: "en",
+            theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+            theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+            theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+            theme_advanced_buttons4: "jbimg,|,insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft",
+            theme_advanced_toolbar_location: "top",
+            theme_advanced_toolbar_align: "left",
+            theme_advanced_statusbar_location: "bottom",
+            theme_advanced_resizing: true,
+            relative_urls: false,
+            width: '100%'
+        });
+    });
+    $(document).ready(function() {
+        tinyMCE.init({
+            mode: "exact",
+            elements: "edit_input_deskripsi2",
             theme: "advanced",
             plugins: "jbimages,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
             language: "en",

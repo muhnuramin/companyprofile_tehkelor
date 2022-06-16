@@ -40,6 +40,10 @@ defined('BASEPATH') or die('No direct script access allowed!');
                                     <input type="text" class="form-control" name="nama_layanan" placeholder="Nama Layanan" required>
                                 </div>
                                 <div class="col-md-12">
+                                    <label>Nama Layanan (english)</label>
+                                    <input type="text" class="form-control" name="nama_layanan_en" placeholder="Nama Layanan" required>
+                                </div>
+                                <div class="col-md-12">
                                     <label>Kategori</label>
                                     <br>
                                     <select class="custom-select" name="kategori">
@@ -52,6 +56,10 @@ defined('BASEPATH') or die('No direct script access allowed!');
                                 <div class="col-md-12">
                                     <label>Deskripsi Layanan</label>
                                     <textarea class="form-control" name="deskripsi_layanan" id="input_deskripsi" placeholder="Deskripsi Layanan"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Deskripsi Layanan (english)</label>
+                                    <textarea class="form-control" name="deskripsi_layanan_en" id="input_deskripsi2" placeholder="Deskripsi Layanan"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +77,9 @@ defined('BASEPATH') or die('No direct script access allowed!');
                 <th>No</th>
                 <th>Foto Layanan</th>
                 <th>Nama Layanan</th>
+                <th>Nama Layanan (english)</th>
                 <th>Deskripsi Layanan</th>
+                <th>Deskripsi Layanan (english)</th>
                 <th>Action</th>
             </thead>
 
@@ -86,7 +96,9 @@ defined('BASEPATH') or die('No direct script access allowed!');
                                 <?php } ?>
                             </td>
                             <td><?= $value->nama_layanan ?></td>
+                            <td><?= $value->nama_layanan_en ?></td>
                             <td><?= $value->deskripsi_layanan ?></td>
+                            <td><?= $value->deskripsi_layanan_en ?></td>
                             <td>
                                 <button type="button" class="btn btn-primary btn-xs" onclick="edit_produk('<?= $value->id_layanan ?>')">
                                     <i class="fa fa-edit"> Edit</i>
@@ -112,6 +124,25 @@ defined('BASEPATH') or die('No direct script access allowed!');
         tinyMCE.init({
             mode: "exact",
             elements: "input_deskripsi",
+            theme: "advanced",
+            plugins: "jbimages,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+            language: "en",
+            theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+            theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+            theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+            theme_advanced_buttons4: "jbimg,|,insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft",
+            theme_advanced_toolbar_location: "top",
+            theme_advanced_toolbar_align: "left",
+            theme_advanced_statusbar_location: "bottom",
+            theme_advanced_resizing: true,
+            relative_urls: false,
+            width: '100%'
+        });
+    });
+    $(document).ready(function() {
+        tinyMCE.init({
+            mode: "exact",
+            elements: "input_deskripsi2",
             theme: "advanced",
             plugins: "jbimages,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
             language: "en",

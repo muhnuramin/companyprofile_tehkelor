@@ -49,10 +49,12 @@ class C_layanan extends CI_Controller
 
     public function add_produk()
     {
-        $nama_layanan = $this->input->post('nama_layanan');       
+        $nama_layanan = $this->input->post('nama_layanan');
+        $nama_layanan_en = $this->input->post('nama_layanan_en');
         $deskripsi_layanan = $this->input->post('deskripsi_layanan');
+        $deskripsi_layanan_en = $this->input->post('deskripsi_layanan_en');
         $kategori = $this->input->post('kategori');
-        
+
         $upload = new FileUploadLibrary();
         $upload->setConfig(array(
             'upload_path' => realpath('assets/img'),
@@ -70,7 +72,9 @@ class C_layanan extends CI_Controller
         );
 
         $dataInsert['nama_layanan'] = $nama_layanan;
+        $dataInsert['nama_layanan_en'] = $nama_layanan_en;
         $dataInsert['deskripsi_layanan'] = $deskripsi_layanan;
+        $dataInsert['deskripsi_layanan_en'] = $deskripsi_layanan_en;
         $dataInsert['kategori'] = $kategori;
 
         foreach ($dataUpload as $key => $value) {
@@ -176,11 +180,15 @@ class C_layanan extends CI_Controller
         }
 
         $nama_layanan = getPost('nama_layanan');
+        $nama_layanan_en = getPost('nama_layanan_en');
         $deskripsi_layanan = getPost('deskripsi_layanan');
+        $deskripsi_layanan_en = getPost('deskripsi_layanan_en');
         $kategori = getPost('kategori');
 
         $updateData['nama_layanan'] = $nama_layanan;
+        $updateData['nama_layanan_en'] = $nama_layanan_en;
         $updateData['deskripsi_layanan'] = $deskripsi_layanan;
+        $updateData['deskripsi_layanan_en'] = $deskripsi_layanan_en;
         $updateData['kategori'] = $kategori;
 
         $upload = new FileUploadLibrary();
