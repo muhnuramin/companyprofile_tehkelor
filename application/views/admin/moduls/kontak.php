@@ -61,6 +61,12 @@
 													<textarea style="height: 150px;" class="form-control col-xs-10 col-sm-5" id="deskripsi_kontak" name="deskripsi_kontak" placeholder="Deskripsi Kontak"></textarea>
 												</div>
 											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Deskripsi Kontak (english)</label>
+												<div class="col-sm-6">
+													<textarea style="height: 150px;" class="form-control col-xs-10 col-sm-5" id="deskripsi_kontak2" name="deskripsi_kontak_us" placeholder="Deskripsi Kontak"></textarea>
+												</div>
+											</div>
 
 											<div class="form-group">
 												<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Email </label>
@@ -75,21 +81,6 @@
 													<input type="text" id="embed_dua" oninput="getEmbed1();" name="nomor_kontak" placeholder="nomor telpon" class="form-control" />
 												</div>
 											</div>
-
-											<!-- <div class="form-group">
-												<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> link lokasi </label>
-												<div class="col-sm-10">
-													<input type="text" id="kontak_lat" name="kontak_lat" placeholder="Kontak Latitude" class="col-xs-10 col-sm-5" />
-												</div>
-
-											</div> -->
-
-											<!-- <div class="form-group">
-												<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Kontak Longtitude </label>
-													<div class="col-sm-10">
-														<input type="text" id="kontak_long" name="kontak_long" placeholder="Kontak Longtitude" class="col-xs-10 col-sm-5" />
-													</div>
-											</div> -->
 
 											<div class="modal fade in" id="modal">
 												<div class="modal-dialog modal-md">
@@ -201,101 +192,40 @@
 
 		tinyMCE.init({
 
-
-
-			// mode : "textareas",
-
-
-
 			mode: "exact",
-
 			elements: "deskripsi_kontak",
-
-
-
-
-
-			// ===========================================
-
-			// Set THEME to ADVANCED
-
-			// ===========================================
-
-
-
 			theme: "advanced",
-
-
-
-			// ===========================================
-
-			// INCLUDE the PLUGIN
-
-			// ===========================================
-
-
-
 			plugins: "jbimages,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
-
-
-
-			// ===========================================
-
-			// Set LANGUAGE to EN (Otherwise, you have to use plugin's translation file)
-
-			// ===========================================
-
-
-
 			language: "en",
-
-
-
 			theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
-
 			theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-
 			theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-
-
-
-			// ===========================================
-
-			// Put PLUGIN'S BUTTON on the toolbar
-
-			// ===========================================
-
-
-
 			theme_advanced_buttons4: "jbimages,|,insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft",
-
-
-
 			theme_advanced_toolbar_location: "top",
-
 			theme_advanced_toolbar_align: "left",
-
 			theme_advanced_statusbar_location: "bottom",
-
 			theme_advanced_resizing: true,
-
-
-
-			// ===========================================
-
-			// Set RELATIVE_URLS to FALSE (This is required for images to display properly)
-
-			// ===========================================
-
-
-
 			relative_urls: false
-
-
-
+		});
+		tinyMCE.init({
+			mode: "exact",
+			elements: "deskripsi_kontak2",
+			theme: "advanced",
+			plugins: "jbimages,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+			language: "en",
+			theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+			theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+			theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+			theme_advanced_buttons4: "jbimages,|,insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft",
+			theme_advanced_toolbar_location: "top",
+			theme_advanced_toolbar_align: "left",
+			theme_advanced_statusbar_location: "bottom",
+			theme_advanced_resizing: true,
+			relative_urls: false
 		});
 
 	}
+
 
 
 	function modal_peta(id, latitude, longitude) {
@@ -523,6 +453,8 @@
 				$('[name="id_kontak"]').val(result.id_kontak);
 
 				$('[name="deskripsi_kontak"]').val(result.deskripsi_kontak);
+
+				$('[name="deskripsi_kontak_us"]').val(result.deskripsi_kontak_us);
 
 				$('[name="script_embed_code"]').val(result.script_embed_code);
 
