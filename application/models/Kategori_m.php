@@ -15,4 +15,16 @@ class Kategori_m extends CI_Model
         $this->db->where('id_kategori', $id);
         $this->db->delete('tb_kategori');
     }
+    public function joinKategori($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_layanan');
+        $this->db->join('tb_kategori', 'tb_kategori.id_kategori=tb_layanan.kategori');
+        $return = $this->db->where('id_layanan', $id)->get();
+        if ($return->num_rows() > 0) {
+            return $return->result();
+        } else {
+            return false;
+        }
+    }
 }

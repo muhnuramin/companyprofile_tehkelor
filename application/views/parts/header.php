@@ -8,7 +8,7 @@
   <title><?php echo $title ?></title>
   <meta content="<?php echo $metadesc; ?>" name="descriptison">
 
-  <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/so-kressh.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/logo_h.png" type="image/x-icon" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">

@@ -36,10 +36,10 @@ defined('BASEPATH') or die('No direct script access allowed!');
                                     <label>Nama Album</label>
                                     <br>
                                     <select class="custom-select" name="nama_album">
-                                        <option selected>Piih Galeri</option>
-                                        <option value="1">Pabrik Produksi</option>
-                                        <option value="2">Pengepakan</option>
-                                        <option value="3">Pameran</option>
+                                        <option selected>Piih Album</option>
+                                        <?php foreach ($album as $a) : ?>
+                                            <option value="<?= $a['id_album']; ?>"><?= $a['nama_album'] ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
 

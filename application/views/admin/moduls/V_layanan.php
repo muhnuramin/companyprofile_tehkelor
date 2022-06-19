@@ -4,7 +4,6 @@ defined('BASEPATH') or die('No direct script access allowed!');
 <div class="page-header">
     <h1>Layanan</h1>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div style="padding-bottom: 10px;">
@@ -29,7 +28,6 @@ defined('BASEPATH') or die('No direct script access allowed!');
                                     Max Dimension : 800 x 533 (px)<br>
                                     Allowed Image : JPG | PNG
                                 </div>
-
                                 <div class="col-md-12">
                                     <label>Foto Layanan</label>
                                     <input type="file" class="form-control" name="foto_layanan" id="input_foto5" required>
@@ -48,8 +46,9 @@ defined('BASEPATH') or die('No direct script access allowed!');
                                     <br>
                                     <select class="custom-select" name="kategori">
                                         <option selected>Kategori</option>
-                                        <option value="1">Keripik Buah</option>
-                                        <option value="2">Keripik Sayuran</option>
+                                        <?php foreach ($kategori as $k) : ?>
+                                            <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori'] ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
 

@@ -6,12 +6,18 @@ class C_layanan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_layanan', 'layanan');
+        $this->load->model('Kategori_m');
     }
 
     public function index()
     {
-        $data['view_file'] = 'admin/moduls/V_layanan';
-        $data['result'] = $this->layanan->layanan()->result();
+        $data = [
+            'view_file' => 'admin/moduls/V_layanan',
+            'result' => $this->layanan->layanan()->result(),
+            'kategori' => $this->Kategori_m->getAllKategori(),
+            // 'joindata' => $this->Kategori_m->joinKategori('4'),
+        ];
+
         return $this->load->view('admin/admin_view', $data);
     }
 
@@ -142,7 +148,11 @@ class C_layanan extends CI_Controller
             return JSONResponseDefault('FAILED', 'Data tidak ditemukan');
         }
 
-        $data['data'] = $getData->row();
+        $data = [
+            'data' => $getData->row(),
+            'joindata' => $this->Kategori_m->joinKategori($id),
+            'kategori' => $this->Kategori_m->getAllKategori(),
+        ];
 
         return JSONResponse(array(
             'RESULT' => 'OK',

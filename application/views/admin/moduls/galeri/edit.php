@@ -16,37 +16,28 @@ defined('BASEPATH') or die('No direct script access allowed!');
             <div class="modal-body">
                 <div class="row">
                     <div class="alert alert-warning text-center">
-                    <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+                        <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
                         <strong>Peringatan!</strong><br>
-                            Max Dimension : 640 x 426 (px)<br>
-                            Allowed Image : JPG | PNG
+                        Max Dimension : 640 x 426 (px)<br>
+                        Allowed Image : JPG | PNG
                     </div>
 
                     <div class="col-md-12">
                         <label>Gambar Galeri</label>
                         <input type="file" class="form-control" name="foto_galeri" id="edit_input_foto5">
-                    </div>     
+                    </div>
                     <div class="col-md-12">
                         <label>Nama galeri</label>
                         <br>
-                    <select class="custom-select" name="nama_album">
-                        <option selected>Pilih Galeri</option>
-                        <?php if($data->nama_album == 1 ){  ?>
-                            <option value="1" selected>Pabrik Produksi</option>
-                            <option value="2" >Pengepakan</option>
-                            <option value="3" >Pameran</option>
-                        <?php }else if($data->nama_album == 2){ ?>
-                            <option value="1" >Pabrik Produksi</option>
-                            <option value="2" selected>Pengepakan</option>
-                            <option value="3" >Pameran</option>
-                        <?php }else if($data->nama_album) {?>
-                            <option value="1" >Pabrik Produksi</option>
-                            <option value="2" >Pengepakan</option>
-                            <option value="3" selected>Pameran</option>
-                         <?php }?>   
-
-                    </select>
-                    </div>            
+                        <select class="custom-select" name="nama_album">
+                            <?php foreach ($joindata as $j) : ?>
+                                <option value="<?= $j->id_album; ?>"><?= $j->nama_album; ?></option>
+                            <?php endforeach; ?>
+                            <?php foreach ($album as $a) : ?>
+                                <option value="<?= $a['id_album']; ?>"><?= $a['nama_album'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
             </div>
 

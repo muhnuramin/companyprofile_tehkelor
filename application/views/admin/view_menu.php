@@ -74,19 +74,31 @@ if ($id_level == 1) { ?>
 
 
 <li class="hover text-center">
+	<a href="<?= base_url() ?>C_layanan">
+		<i class="fas fa-th fa-2x"></i><br>
+		<span class="menu-text"> Layanan </span>
+	</a>
+</li>
+<li class="hover text-center">
 	<a href="<?= base_url() ?>Kategori">
-		<i class="fas fa-images fa-2x"></i><br>
+		<i class="fas fa-th fa-2x"></i><br>
 		<span class="menu-text"> Kategori </span>
 	</a>
 
 	<b class="arrow"></b>
+</li>
+
+<li class="hover text-center">
+	<a href="<?= base_url() ?>C_galeri">
+		<i class="fas fa-images fa-2x"></i><br>
+		<span class="menu-text"> Galeri </span>
+	</a>
 </li>
 <li class="hover text-center">
 	<a href="<?= base_url() ?>Album">
 		<i class="fas fa-images fa-2x"></i><br>
 		<span class="menu-text"> Album </span>
 	</a>
-
 	<b class="arrow"></b>
 </li>
 <li class="hover text-center btn-group">
@@ -98,4 +110,4 @@ if ($id_level == 1) { ?>
 	<b class="arrow"></b>
 </li>
 
-</ul><!-- /.nav-list -->
+</ul>

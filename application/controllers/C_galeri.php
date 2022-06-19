@@ -6,12 +6,16 @@ class C_galeri extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_galeri', 'galeri');
+        $this->load->model('Album_m');
     }
 
     public function index()
     {
-        $data['view_file'] = 'admin/moduls/V_galeri';
-        $data['result'] = $this->galeri->galeri()->result();
+        $data = [
+            'view_file' => 'admin/moduls/V_galeri',
+            'result' => $this->galeri->galeri()->result(),
+            'album' => $this->Album_m->getAllAlbum(),
+        ];
         return $this->load->view('admin/admin_view', $data);
     }
 
@@ -133,7 +137,11 @@ class C_galeri extends CI_Controller
             return JSONResponseDefault('FAILED', 'Data tidak ditemukan');
         }
 
-        $data['data'] = $getData->row();
+        $data = [
+            'data' => $getData->row(),
+            'joindata' => $this->Album_m->joinalbum(1),
+            'album' => $this->Album_m->getAllAlbum(),
+        ];
 
         return JSONResponse(array(
             'RESULT' => 'OK',

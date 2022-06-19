@@ -37,14 +37,12 @@ defined('BASEPATH') or die('No direct script access allowed!');
                         <label>Kategori</label>
                         <br>
                         <select class="custom-select" name="kategori">
-                            <option selected>Open this select menu</option>
-                            <?php if ($data->kategori == 1) {  ?>
-                                <option value="1" selected>Keripik Buah</option>
-                                <option value="2">Keripik Sayuran</option>
-                            <?php } else if ($data->kategori == 2) { ?>
-                                <option value="1">Keripik Buah</option>
-                                <option value="2" selected>Keripik Sayuran</option>
-                            <?php } ?>
+                            <?php foreach ($joindata as $j) : ?>
+                                <option value="<?= $j->id_kategori; ?>"><?= $j->nama_kategori; ?></option>
+                            <?php endforeach; ?>
+                            <?php foreach ($kategori as $k) : ?>
+                                <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 
